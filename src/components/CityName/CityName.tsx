@@ -5,7 +5,7 @@ import { Location } from "@/types/Location";
 const CityName = () => {
     const { city, county } = useLocation<Location>();
     return (
-        <div>
+        <div className="">
             <h1>{city}</h1>
             <h2>{county}</h2>
         </div>

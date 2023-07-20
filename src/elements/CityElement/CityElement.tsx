@@ -1,9 +1,8 @@
-import CityName from "@/components/CityName/CityName";
-import Cover from "@/components/Cover/Cover";
+import React from "react";
 import Provider from "@/context/Provider";
 import { PagePropsTypes } from "@/types/PagePropsTypes";
-import React from "react";
-import Date from "@/components/Date/Date";
+import Layout from "@/components/Layout/Layout";
+import DateAndLocation from "../DateAndLocation/DateAndLocation";
 
 interface CityElementProps {
     pageProps: PagePropsTypes;
@@ -12,9 +11,9 @@ interface CityElementProps {
 const CityElement: React.FC<CityElementProps> = ({ pageProps }) => {
     return (
         <Provider<PagePropsTypes> appProps={pageProps}>
-            <CityName />
-            <Date />
-            <Cover />
+            <Layout>
+                <DateAndLocation />
+            </Layout>
         </Provider>
     );
 };
