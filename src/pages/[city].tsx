@@ -1,21 +1,20 @@
+import CityElement from "@/elements/CityElement/CityElement";
 import { getServerSideProps as getWeatherData } from "@/fetchers/getWeatherData";
 import { PagePropsTypes } from "@/types/PagePropsTypes";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-export default function City(props: PagePropsTypes) {
+export default function City(pageProps: PagePropsTypes) {
     const router = useRouter();
     useEffect(() => {
-        if (props.status === 404) {
+        if (pageProps.status === 404) {
             router.push("/404", undefined, { shallow: true });
         }
     });
     return (
         <>
-            {props.status === 200 && props?.cityData && (
-                <div>
-                    <h1>{props.cityData.city}</h1>
-                </div>
+            {pageProps.status === 200 && pageProps?.cityData && (
+                <CityElement pageProps={pageProps} />
             )}
         </>
     );

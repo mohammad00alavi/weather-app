@@ -4,9 +4,13 @@ import React, { useState } from "react";
 export default function CityInput() {
     const [inputText, setInputText] = useState("");
     const router = useRouter();
-    const onSubmitHandler = () => {
-        router.push(`/${inputText.toLowerCase()}`, undefined, { shallow: true });
+    const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        router.push(`/${inputText.toLowerCase()}`, undefined, {
+            shallow: true,
+        });
     };
+
     return (
         <div>
             <form onSubmit={onSubmitHandler}>
