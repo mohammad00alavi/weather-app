@@ -6,7 +6,6 @@ const useCityImage = () => {
     const [imgData, setImgData] = useState({
         url: "",
         description: "",
-        color: "",
     });
     const [isLoading, setIsLoading] = useState(true);
     const { city } = useLocation<string>();
@@ -18,7 +17,6 @@ const useCityImage = () => {
                 setImgData({
                     url: imgSrc,
                     description: description,
-                    color: color,
                 });
                 setIsLoading(false);
             };
@@ -30,7 +28,6 @@ const useCityImage = () => {
         isLoading,
         imgSrc: imgData.url,
         description: imgData.description,
-        color: imgData.color,
     };
 };
 
