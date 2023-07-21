@@ -10,4 +10,6 @@ export interface CityData {
     temp_max: number;
     temp_min: number;
     wind: WindData;
+    weather: string;
+    description: string;
 }

@@ -1,13 +1,15 @@
 import React from "react";
 import { useLocation } from "@/hooks/useLocation";
-import { Location } from "@/types/Location";
+import { Location } from "@/types/CityDataTypes";
 
 const CityName = () => {
     const { city, county } = useLocation<Location>();
     return (
-        <div>
-            <h1>{city}</h1>
-            <h2>{county}</h2>
+        <div className="mt-8 md:mr-8 flex flex-col">
+            <h1 className="text-4xl text-shadow">
+                {city},{" "}
+                <span className="text-lg font-bold text-shadow">{county}</span>
+            </h1>
         </div>
     );
 };

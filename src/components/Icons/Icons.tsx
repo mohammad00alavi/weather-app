@@ -6,6 +6,8 @@ import Rain from "./Rain";
 import Snow from "./Snow";
 import Sun from "./Sun";
 import Temperature from "./Temperature";
+import Wind from "./Wind";
+import Pressure from "./Pressure";
 
 interface IconsProps extends SVGProps<SVGSVGElement> {}
 
@@ -17,6 +19,8 @@ const Icons = {
     Snow: (props: IconsProps) => <Snow {...props} />,
     Sun: (props: IconsProps) => <Sun {...props} />,
     Temperature: (props: IconsProps) => <Temperature {...props} />,
+    Wind: (props: IconsProps) => <Wind {...props} />,
+    Pressure: (props: IconsProps) => <Pressure {...props} />,
 };
 
 export default Icons;

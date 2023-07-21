@@ -1,1 +1,1 @@
-export { default } from "./InfoBoxItem";
+export { default } from "./IconBox";
