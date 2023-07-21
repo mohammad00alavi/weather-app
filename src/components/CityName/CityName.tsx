@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "@/hooks/useLocation";
-import { Location } from "@/types/Location";
+import { Location } from "@/types/CityDataTypes";
 
 const CityName = () => {
     const { city, county } = useLocation<Location>();

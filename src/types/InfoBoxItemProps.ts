@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import { InfoItemData } from "./InfoItemData";
 
-export interface InfoBoxItemProps {
-    data: InfoItemData;
+export interface InfoBoxItemProps<T> {
+    data: T;
     icon: ReactNode;
 }
