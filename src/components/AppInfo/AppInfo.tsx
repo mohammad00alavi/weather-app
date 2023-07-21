@@ -17,39 +17,20 @@ const AppInfo = () => {
         <div>
             <ExclamationBtn onClick={openModal} />
             {modalOpen && (
-                <div onClick={closeModal} style={backdropStyle}>
-                    <div onClick={e => e.stopPropagation()} style={modalStyle}>
+                <div
+                    onClick={closeModal}
+                    className="fixed top-0 bottom-0 left-0 right-0 bg-white bg-opacity-40 p-10 z-50 flex justify-center items-center"
+                >
+                    <div
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-white rounded w-max-48 h-min-24 relative z-50 p-8 my-0 mx-auto"
+                    >
                         <Content />
                     </div>
                 </div>
             )}
         </div>
     );
-};
-
-const backdropStyle = {
-    position: 'fixed',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'rgba(0,0,0,0.3)',
-    padding: 50,
-    zIndex: 1000,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-};
-
-const modalStyle = {
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    maxWidth: 500,
-    minHeight: 180,
-    margin: '0 auto',
-    padding: 30,
-    position: 'relative',
-    zIndex: 1001,
 };
 
 export default AppInfo;
