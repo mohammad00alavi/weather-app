@@ -8,7 +8,7 @@ const Layout: React.FC<ComponentWithChildren> = ({ children }) => {
         <>
             {!isLoading && (
                 <div
-                    className="w-6/12 h-96 m-auto mt-8"
+                    className="max-w-screen-xl h-screen lg:h-[48rem] m-auto flex flex-col justify-between lg:rounded"
                     style={{
                         backgroundImage: `url(${imgSrc})`,
                         backgroundSize: "cover",

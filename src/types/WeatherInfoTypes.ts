@@ -1,5 +1,5 @@
 export interface WeatherInfoTypes {
-    pressure: "purple";
-    humidity: "blue";
-    wind: "red";
+    pressure: string;
+    humidity: string;
+    wind: string;
 }

@@ -4,5 +4,6 @@ import { ClassElement } from "typescript";
 export interface IconBoxProps {
     data: number;
     icon: ReactNode;
-    className: string;
+    iconClasses: string;
+    textClasses: string;
 }

@@ -4,15 +4,15 @@ import { WeatherInfoTypes } from "@/types/WeatherInfoTypes";
 import { WeatherStatus } from "@/types/WeatherStatus";
 
 const weatherStatusColors: WeatherStatus = {
-    clear: "yellow",
-    rain: "blue",
+    clear: "#FFFF00",
+    rain: "#03A9F4",
     clouds: "white",
 };
 
 const weatherInfoColors: WeatherInfoTypes = {
-    pressure: "purple",
-    humidity: "blue",
-    wind: "red",
+    pressure: "#9B5FD0",
+    humidity: "#4AF0FF",
+    wind: "#D3E3EC",
 };
 
 const weatherIconsMap: IconMap = {

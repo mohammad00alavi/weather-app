@@ -1,5 +1,5 @@
 export interface WeatherStatus {
-    clear: "yellow";
-    rain: "blue";
-    clouds: "white";
+    clear: string;
+    rain: string;
+    clouds: string;
 }

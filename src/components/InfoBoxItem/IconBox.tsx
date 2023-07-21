@@ -1,11 +1,11 @@
 import React from "react";
 import { IconBoxProps } from "@/types/IconBoxProps";
 
-const IconBox: React.FC<IconBoxProps> = ({ data, icon, className }) => {
+const IconBox: React.FC<IconBoxProps> = (props) => {
     return (
-        <div className={className}>
-            <div className="mb-2 self-center">{icon}</div>
-            <p className="text-center">{data}</p>
+        <div className={props.iconClasses}>
+            <div className="mb-2 self-center">{props.icon}</div>
+            <p className={props.textClasses}>{props.data}</p>
         </div>
     );
 };

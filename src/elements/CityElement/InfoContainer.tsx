@@ -13,13 +13,14 @@ const InfoContainer = () => {
         wind: windDeg,
     };
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-row p-2 md:mr-4 self-end">
             {Object.entries(infoObject).map(([key, value]) => (
                 <IconBox
                     key={key}
                     data={value}
                     icon={getWeatherIcon(key as keyof WeatherInfoTypes, "info")}
-                    className={"flex flex-col m-4"}
+                    iconClasses="flex flex-col mx-3 md:mx-6 rounded self-center"
+                    textClasses="text-center md:text-2xl text-shadow"
                 />
             ))}
         </div>
