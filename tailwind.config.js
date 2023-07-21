@@ -20,11 +20,8 @@ module.exports = {
         function ({ addUtilities }) {
             const newUtilities = {
                 ".text-shadow": {
-                    textShadow: "0 2px 2px rgba(255, 255, 255, 0.5)",
+                    textShadow: "2px 2px 2px rgba(255, 255, 255, 0.9)",
                 },
-                /* ".text-shadow-lg": {
-                    textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)",
-                }, */
             };
             addUtilities(newUtilities);
         },

@@ -4,6 +4,8 @@ import { PagePropsTypes } from "@/types/PagePropsTypes";
 import Layout from "@/components/Layout/Layout";
 import DateAndLocation from "../DateAndLocation/DateAndLocation";
 import TempContainer from "../TempContainer/TempContainer";
+import CityTemplate from "./CityTemplate";
+import CityInput from "@/components/CityInput/CityInput";
 
 interface CityElementProps {
     pageProps: PagePropsTypes;
@@ -12,9 +14,12 @@ interface CityElementProps {
 const CityElement: React.FC<CityElementProps> = ({ pageProps }) => {
     return (
         <Provider<PagePropsTypes> appProps={pageProps}>
+            <CityInput />
             <Layout>
-                <DateAndLocation />
-                <TempContainer />
+                <CityTemplate>
+                    <DateAndLocation />
+                    <TempContainer />
+                </CityTemplate>
             </Layout>
         </Provider>
     );
