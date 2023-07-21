@@ -23,7 +23,7 @@ const useCityImage = () => {
 
             getPicture();
         }
-    }, []);
+    }, [city]);
     return {
         isLoading,
         imgSrc: imgData.url,

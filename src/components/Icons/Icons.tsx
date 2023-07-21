@@ -8,6 +8,9 @@ import Sun from "./Sun";
 import Temperature from "./Temperature";
 import Wind from "./Wind";
 import Pressure from "./Pressure";
+import Exclamation from "./Exclamation";
+import Linkedin from "./Linkedin";
+import Github from "./Github";
 
 interface IconsProps extends SVGProps<SVGSVGElement> {}
 
@@ -21,6 +24,9 @@ const Icons = {
     Temperature: (props: IconsProps) => <Temperature {...props} />,
     Wind: (props: IconsProps) => <Wind {...props} />,
     Pressure: (props: IconsProps) => <Pressure {...props} />,
+    Exclamation: (props: IconsProps) => <Exclamation {...props} />,
+    Linkedin: (props: IconsProps) => <Linkedin {...props} />,
+    Github: (props: IconsProps) => <Github {...props} />,
 };
 
 export default Icons;

@@ -4,7 +4,7 @@ import { useWeatherDescription } from "@/hooks/useWeatherDescription";
 import { Description, Temperature } from "@/types/CityDataTypes";
 import { getWeatherIcon } from "@/utils/getWeatherIcon";
 import React from "react";
-import InfoContainer from "../CityElement/InfoContainer";
+import InfoContainer from "./InfoContainer";
 
 const TempContainer = () => {
     const { temp } = useTemperature<Temperature>();

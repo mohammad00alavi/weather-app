@@ -1,10 +1,5 @@
-import Link from "next/link";
+import NotFoundElement from "@/elements/NotFoundElement/NotFoundElement";
 
 export default function Custom404() {
-    return (
-        <>
-            <h1>404 - City Not Found</h1>
-            <Link href={"/"}>Back to home</Link>
-        </>
-    );
+    return <NotFoundElement />;
 }
