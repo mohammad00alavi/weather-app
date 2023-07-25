@@ -18,17 +18,31 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# Weather App
 
-To learn more about Next.js, take a look at the following resources:
+Check out the live version of the app [here](https://weather-predictor-app.netlify.app/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This is a comprehensive weather application that retrieves weather data from OpenWeather API and city images from Unsplash API. The application is built using Next.js, TypeScript, and styled with Tailwind CSS.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Features
+- Current weather data: Get the current temperature, humidity, pressure, and wind speed of any city.
+- City images: Display beautiful pictures of the city you're looking up from Unsplash API.
+- Built with modern frameworks: Utilizing Next.js for server-side rendering and TypeScript for type safety.
+- Responsive design: The UI has been designed to be responsive and easy to use.
 
-## Deploy on Vercel
+## Future Improvements
+In the next versions of the application, the following features will be added:
+- Weather forecast: Detailed weather forecast data.
+- Weather chart: Visualize the weather data with Plotly for a more intuitive understanding.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Note
+The current design of the application is minimal and straightforward, created by me. I understand there might be room for improvement, and I'm open to feedback and suggestions. Design enhancements will be part of future updates.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## How to Use
+Enter the name of the city you're interested in and you'll receive its current weather data along with a beautiful image of the city. 
+
+## Contributions
+Feel free to contribute to the improvement of this project by providing feedback, opening issues, or submitting PRs.
+
+## License
+[MIT License](./LICENSE)
