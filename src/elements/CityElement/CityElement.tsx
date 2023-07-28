@@ -21,8 +21,8 @@ const CityElement: React.FC<CityElementProps> = ({ pageProps }) => {
                 description={`${city} Weather | The Weather App`}
             />
             <Provider<PagePropsTypes> appProps={pageProps}>
-                <CityInput />
                 <Layout>
+                    <CityInput />
                     <CityTemplate>
                         <DateAndLocation />
                         <TempContainer />
