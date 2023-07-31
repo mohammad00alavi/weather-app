@@ -5,4 +5,5 @@ export interface IconBoxProps {
     icon: ReactNode;
     iconClasses: string;
     textClasses: string;
+    status: string;
 }

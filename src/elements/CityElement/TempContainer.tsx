@@ -14,6 +14,7 @@ const TempContainer = () => {
             <IconBox
                 data={Math.round(temp)}
                 icon={getWeatherIcon(weather, "main")}
+                status={'temp'}
                 iconClasses={"flex flex-col items-center ml-6 md:ml-0"}
                 textClasses={"text-center text-4xl font-bold text-shadow"}
             />
