@@ -1,7 +1,9 @@
 import { Status } from "@/types/Status";
+import getConfig from "next/config";
 
 export async function fetchCityData(city: string) {
-    const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=en&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`;
+    const { publicRuntimeConfig } = getConfig();
+    const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=en&appid=${publicRuntimeConfig.WEATHER_DATA}`;
     let status: Status;
     let res;
     try {

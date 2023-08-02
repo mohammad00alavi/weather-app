@@ -20,7 +20,7 @@ const InfoContainer = () => {
                     status={key}
                     icon={getWeatherIcon(key as keyof WeatherInfoTypes, "info")}
                     iconClasses="flex flex-col mx-3 md:mx-6 rounded self-center"
-                    textClasses="text-center md:text-2xl text-shadow"
+                    textClasses="text-center md:text-2xl text-shadow text-cyan-300"
                 />
             ))}
         </div>
