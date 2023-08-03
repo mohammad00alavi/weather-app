@@ -1,5 +1,5 @@
 export const fetchPicture = async (city: string) => {
-    const URL = `https://api.unsplash.com/search/photos?query=${city}&client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}&w=1920&h=1080`;
+    const URL = `https://api.unsplash.com/search/photos?query=${city}&client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}`;
     try {
         const res = await fetch(URL);
         const data = await res.json();

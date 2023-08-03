@@ -16,7 +16,7 @@ const TempContainer = () => {
                 icon={getWeatherIcon(weather, "main")}
                 status={'temp'}
                 iconClasses={"flex flex-col items-center ml-6 md:ml-0"}
-                textClasses={"text-center text-4xl font-bold text-shadow"}
+                textClasses={"text-center text-4xl font-bold text-shadow text-cyan-300"}
             />
             <InfoContainer />
         </div>
