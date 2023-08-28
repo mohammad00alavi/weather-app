@@ -4,6 +4,7 @@ import HomeTemplate from "./HomeTemplate";
 import Heading from "@/components/Heading/Heading";
 import AppInfo from "@/components/AppInfo/AppInfo";
 import CustomHead from "@/components/CustomHead/CustomHead";
+import Board from "./Board";
 
 const HomeElement = () => {
     return (
@@ -17,6 +18,7 @@ const HomeElement = () => {
                         className="text-4xl text-white"
                         type="h1"
                     />
+                    <Board />
                     <AppInfo />
                 </HomeTemplate>
             </Layout>
