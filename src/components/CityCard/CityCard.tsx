@@ -1,13 +1,10 @@
 import React from "react";
 import useCity from "@/hooks/useCity";
-import Card, { CardProps } from "../Card/Card";
+import Card from "../Card/Card";
 import Link from "next/link";
 import IconBox from "../InfoBoxItem";
 import { getWeatherIcon } from "@/utils/getWeatherIcon";
-
-interface CityCardProps extends Omit<CardProps, "children"> {
-    cityName: string;
-}
+import { CityCardProps } from "@/types/CityCardProps";
 
 const CityCard = ({ cityName, size, color }: CityCardProps) => {
     const city = useCity(cityName);
@@ -16,7 +13,6 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
         return <div>Loading...</div>;
     }
     const cityData = city.cityData;
-    console.log(cityData, "ann");
     return (
         <Link href={`/${cityName}`}>
             <Card size={size} color={color}>
@@ -34,10 +30,6 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
                         }
                     />
                 </div>
-                {/* <div className="flex justify-between">
-                    <h4>min: {cityData?.temp_min}</h4>
-                    <p>max: {cityData?.temp_max}</p>
-                </div> */}
             </Card>
         </Link>
     );

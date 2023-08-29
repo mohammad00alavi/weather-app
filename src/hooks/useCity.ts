@@ -19,7 +19,6 @@ const useCity = (cityName: string): UseCityHookResult => {
             return res?.data;
         };
         getData().then((data) => {
-            console.log(data, "data");
             setCity(data);
             setLoading(false);
         });
