@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentWithChildren } from "../../types/ComponentWithChildren";
 
-interface CardProps extends ComponentWithChildren {
+export interface CardProps extends ComponentWithChildren {
     size: "compact" | "default" | "expanded";
     color: "blue" | "green" | "orange" | "gray";
 }
@@ -10,13 +10,13 @@ const Card = ({ children, size, color }: CardProps) => {
     const getSizeStyle = (size: string) => {
         switch (size) {
             case "compact":
-                return "w-20	lg:w-28";
+                return "w-40 h-20 lg:w-44 lg:h-24";
             case "default":
-                return "w-24	lg:w-32";
+                return "w-44 h-24 lg:w-48 lg:h-28";
             case "expanded":
-                return "w-32	lg:w-36";
+                return "w-48 h-28 lg:w-64 lg:h-32";
             default:
-                return "w-20	lg:w-32";
+                return "w-40 h-20 lg:w-44 lg:h-24";
         }
     };
 
@@ -37,7 +37,7 @@ const Card = ({ children, size, color }: CardProps) => {
     const colorStyle = getColorStyle(color);
     const sizeStyle = getSizeStyle(size);
 
-    return <article className={`${colorStyle} ${sizeStyle}`}>{children}</article>;
+    return <article className={`${colorStyle} ${sizeStyle} flex flex-col justify-center p-2 lg:p-4 rounded`}>{children}</article>;
 };
 
 export default Card;

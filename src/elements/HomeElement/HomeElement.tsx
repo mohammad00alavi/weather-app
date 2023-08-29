@@ -13,11 +13,6 @@ const HomeElement = () => {
             <Layout>
                 <CityInput />
                 <HomeTemplate>
-                    <Heading
-                        text="Weather App"
-                        className="text-4xl text-white"
-                        type="h1"
-                    />
                     <Board />
                     <AppInfo />
                 </HomeTemplate>
