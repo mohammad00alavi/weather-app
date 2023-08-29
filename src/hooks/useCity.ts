@@ -2,11 +2,8 @@ import { fetchCityData } from "@/fetchers/fetchCityData";
 import { CityData } from "@/types/CityData";
 import { useEffect, useState } from "react";
 
-type Data = {
-    cityData: CityData;
-};
 type UseCityHookResult = {
-    cityData?: Data;
+    cityData?: CityData;
     loading: boolean;
 };
 
@@ -25,20 +22,21 @@ const useCity = (cityName: string): UseCityHookResult => {
     }, [cityName]);
     // TODO - fix type error
     if (city) {
+      const customizedCityData: CityData = {
+        city: city.name,
+        country: city.sys.country,
+        feels_like: city.main.feels_like,
+        humidity: city.main.humidity,
+        pressure: city.main.pressure,
+        temp: city.main.temp,
+        temp_max: city.main.temp_max,
+        temp_min: city.main.temp_min,
+        wind: city.wind,
+        weather: city.weather[0].main,
+        description: city.weather[0].description,
+    };
         return {
-            cityData: {
-                city: city.name,
-                temp: city.main.temp,
-                feels_like: city.main.feels_like,
-                temp_min: city.main.temp_min,
-                temp_max: city.main.temp_max,
-                humidity: city.main.humidity,
-                pressure: city.main.pressure,
-                wind: city.wind,
-                country: city.sys.country,
-                weather: city.weather[0].main,
-                description: city.weather[0].description,
-            },
+            cityData: customizedCityData,
             loading: loading,
         };
     }
