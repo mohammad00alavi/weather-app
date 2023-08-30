@@ -36,6 +36,7 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
             </Link>
         );
     }
+    return null;
 };
 
 export default CityCard;

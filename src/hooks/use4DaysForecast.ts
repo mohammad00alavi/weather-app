@@ -1,6 +1,6 @@
 import { fetch4DaysForecast } from "@/fetchers/fetch4DaysForecast";
 import { useEffect, useState } from "react";
-
+// TODO - fix the type errors
 const use4DaysForecast = (lat: number, lon: number) => {
     const [forecastData, setForecastData] = useState(null);
     const [loading, setLoading] = useState(true);

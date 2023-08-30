@@ -1,5 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import { useWindowSize } from "@/hooks/useWindowSize";
 const Plotly = dynamic(() => import("react-plotly.js"), { ssr: false });
 
 interface WeatherData {
@@ -15,33 +16,53 @@ interface ChartProps {
 
 const Chart: React.FC<ChartProps> = ({ data }) => {
     const dates = data?.map((item) => item.date);
-    const temps = data?.map((item) => item.temp);
+    const temps = data?.map((item) => Math.round(item.temp));
+    const { windowSize } = useWindowSize();
+    const width =
+        windowSize.width &&
+        (windowSize.width > 1200
+            ? windowSize.width / 2
+            : windowSize.width * 0.9);
 
     const chartData = [
         {
             x: dates,
             y: temps,
             type: "scatter",
-            mode: "lines+markers",
-            marker: { color: "blue" },
+            text: temps,
+            mode: "lines+text",
+            fill: "tozeroy",
+            marker: { color: "orange" },
+            textposition: "top center",
+            textfont: { size: 12 },
+            hoverinfo: "none",
         },
     ];
-
+    // TODO - fix the textfont hide problem and type error
     const layout = {
-        title: "Temperature Forecast",
         xaxis: {
-            title: "Date",
+            showgrid: false,
+            zeroline: false,
+            showline: false,
+            showticklabels: true,
         },
         yaxis: {
-            title: "Temperature (°C)",
+            showgrid: false,
+            zeroline: false,
+            showline: false,
+            showticklabels: false,
         },
+        showlegend: false,
+        height: 140,
+        width: width,
+        margin: { t: 20, b: 22, l: 0, r: 0, pad: 5 },
+    };
+    const config: Partial<Plotly.Config> = {
+        staticPlot: true,
+        displayModeBar: false,
     };
 
-    return (
-        <div>
-            <Plotly data={chartData} layout={layout} />;
-        </div>
-    );
+    return <Plotly data={chartData} layout={layout} config={config} />;
 };
 
 export default Chart;
