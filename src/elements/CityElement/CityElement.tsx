@@ -7,6 +7,7 @@ import TempContainer from "./TempContainer";
 import CityTemplate from "./CityTemplate";
 import CityInput from "@/components/CityInput/CityInput";
 import CustomHead from "@/components/CustomHead/CustomHead";
+import ForecastContainer from "./ForecastContainer";
 
 interface CityElementProps {
     pageProps: PagePropsTypes;
@@ -25,6 +26,7 @@ const CityElement: React.FC<CityElementProps> = ({ pageProps }) => {
                     <CityInput />
                     <CityTemplate>
                         <DateAndLocation />
+                        <ForecastContainer />
                         <TempContainer />
                     </CityTemplate>
                 </Layout>

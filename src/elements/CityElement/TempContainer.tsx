@@ -5,18 +5,10 @@ import { Description, Temperature } from "@/types/CityDataTypes";
 import { getWeatherIcon } from "@/utils/getWeatherIcon";
 import React from "react";
 import InfoContainer from "./InfoContainer";
-import useCoordinates from "@/hooks/useCoordinates";
-import { useRouter } from "next/router";
-import use4DaysForecast from "@/hooks/use4DaysForecast";
 
 const TempContainer = () => {
     const { temp } = useTemperature<Temperature>();
     const { weather } = useWeatherDescription<Description>();
-    const router = useRouter();
-    const city = router.query.city
-    const coordinates = useCoordinates(city);
-    const forecast = use4DaysForecast(coordinates?.lat,coordinates?.lon)
-    console.log(forecast)
     return (
         <div className="flex flex-row w-full justify-between px-2 md:px-16 bg-white bg-opacity-60 pt-4 pb-6">
             <IconBox

@@ -12,7 +12,6 @@ const use4DaysForecast = (lat: number, lon: number) => {
         };
         getData().then((data) => {
             setForecastData(data);
-
             setLoading(false);
         });
     }, [lat, lon]);
@@ -21,7 +20,15 @@ const use4DaysForecast = (lat: number, lon: number) => {
         return null;
     }
 
-    return forecastData;
+
+    const forecast = forecastData?.data.list.map(item => ({
+      date: item.dt_txt,
+      temp: item.main.temp,
+      weather: item.weather[0].main,
+      description: item.weather[0].description,
+    })).slice(0,10);
+
+    return forecast;
 };
 
 export default use4DaysForecast;
