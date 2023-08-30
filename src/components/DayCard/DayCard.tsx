@@ -1,0 +1,20 @@
+import React from "react";
+import IconBox from "../InfoBoxItem";
+import { getWeatherIcon } from "@/utils/getWeatherIcon";
+
+const DayCard = ({ data }) => {
+    return (
+        <div className="flex flex-col justify-center items-center p-2 md:mr-4 self-end">
+          <h3>{data.day}</h3>
+            <IconBox
+                data={data.maxTemp}
+                status={data.status}
+                icon={getWeatherIcon(data.status, "info")}
+                iconClasses="flex flex-col mx-3 md:mx-6 rounded self-center"
+                textClasses="text-center md:text-2xl text-shadow text-cyan-300"
+            />
+        </div>
+    );
+};
+
+export default DayCard;

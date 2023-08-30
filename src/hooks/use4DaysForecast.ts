@@ -26,7 +26,7 @@ const use4DaysForecast = (lat: number, lon: number) => {
       temp: item.main.temp,
       weather: item.weather[0].main,
       description: item.weather[0].description,
-    })).slice(0,10);
+    }));
 
     return forecast;
 };

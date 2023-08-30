@@ -3,6 +3,7 @@ import use4DaysForecast from "@/hooks/use4DaysForecast";
 import useCoordinates from "@/hooks/useCoordinates";
 import { useRouter } from "next/router";
 import React from "react";
+import DayCardContainer from "./DayCardContainer";
 
 const ForecastContainer = () => {
     const router = useRouter();
@@ -12,7 +13,8 @@ const ForecastContainer = () => {
     const forecast = use4DaysForecast(coordinates?.lat, coordinates?.lon);
     return (
         <div className="flex justify-center">
-            <Chart data={forecast} />
+            {/* <Chart data={forecast} /> */}
+            <DayCardContainer data={forecast} />
         </div>
     );
 };
