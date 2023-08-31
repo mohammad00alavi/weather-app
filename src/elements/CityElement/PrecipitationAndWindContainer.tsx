@@ -4,7 +4,7 @@ import { WeatherInfo } from "@/types/CityDataTypes";
 import { WeatherInfoTypes } from "@/types/WeatherInfoTypes";
 import { getWeatherIcon } from "@/utils/getWeatherIcon";
 
-const InfoContainer = () => {
+const PrecipitationAndWindContainer = () => {
     const { humidity, pressure, windSpeed } = useWeatherInfo<WeatherInfo>();
     const infoObject = {
         humidity: humidity,
@@ -12,7 +12,7 @@ const InfoContainer = () => {
         wind: windSpeed,
     };
     return (
-        <div className="flex flex-row p-2 md:mr-4 self-end">
+        <div className="flex flex-row p-2 md:mr-4 items-center">
             {Object.entries(infoObject).map(([key, value]) => (
                 <IconBox
                     key={key}
@@ -27,4 +27,4 @@ const InfoContainer = () => {
     );
 };
 
-export default InfoContainer;
+export default PrecipitationAndWindContainer;
