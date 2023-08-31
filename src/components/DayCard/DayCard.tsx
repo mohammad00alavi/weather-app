@@ -12,7 +12,7 @@ const DayCard = ({ data }: DayCardProps) => {
         return <div>loading...</div>;
     }
     return (
-        <div className="flex flex-col justify-center items-center p-2 md:mr-4 self-end">
+        <div className="flex flex-col gap-2 justify-center items-center p-2 md:mr-4 self-end">
             <h3 className="text-white text-shadow ">{data.day}</h3>
             <IconBox
                 data={data.maxTemp}
