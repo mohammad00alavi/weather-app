@@ -1,4 +1,4 @@
-const orderedDays: string[] = [
+const fullnameDays: string[] = [
     "Saturday",
     "Sunday",
     "Monday",
@@ -7,9 +7,20 @@ const orderedDays: string[] = [
     "Thursday",
     "Friday",
 ];
+const shorthandDays: string[] = [
+    "Sat",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+];
 
-function getDayName(date: Date): string {
-    return orderedDays[date.getDay()];
+function getDayName(date: Date, isMobile: boolean): string {
+    return isMobile
+        ? shorthandDays[date.getDay()]
+        : fullnameDays[date.getDay()];
 }
 
 interface DayTemperature {
@@ -25,10 +36,14 @@ export const getMaxMinTempByDay = (
         temp: number;
         weather: string;
         description: string;
-    }[]
+    }[],
+    isMobile: boolean
 ): DayTemperature[] => {
+    const orderedDays = isMobile ? shorthandDays : fullnameDays;
     const today: number = new Date().getDay();
-    const offset: number = orderedDays.indexOf(getDayName(new Date()));
+    const offset: number = orderedDays.indexOf(
+        getDayName(new Date(), isMobile)
+    );
 
     const orderedData: DayTemperature[] = [];
     for (let i = 0; i < orderedDays.length; i++) {
@@ -45,7 +60,7 @@ export const getMaxMinTempByDay = (
 
     data?.forEach((item) => {
         const date: Date = new Date(item.date);
-        const dayName: string = getDayName(date);
+        const dayName: string = getDayName(date, isMobile);
         const orderedIndex: number = orderedDays.indexOf(dayName);
 
         if (orderedIndex !== -1) {

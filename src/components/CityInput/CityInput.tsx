@@ -20,7 +20,7 @@ const CityInput: React.FC<CityInputProps> = ({ onTestSubmit }) => {
     };
 
     return (
-        <div className="w-full m-auto absolute opacity-50 z-50">
+        <div className="w-full m-auto absolute opacity-30 z-50">
             <form
                 onSubmit={onSubmitHandler}
                 className="flex flex-row justify-between w-full"

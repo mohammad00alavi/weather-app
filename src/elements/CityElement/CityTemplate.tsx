@@ -8,14 +8,17 @@ const CityTemplate: React.FC<ComponentWithChildren> = ({ children }) => {
         <>
             {!isLoading && (
                 <div
-                    className="w-full h-full flex flex-col justify-between pt-20 md:pt-16"
+                    className="w-full h-full flex flex-col justify-between pt-20 md:pt-16 relative"
                     style={{
                         backgroundImage: `url(${imgSrc})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                     }}
                 >
-                    {children}
+                    <div className="absolute inset-0 bg-teal-950 opacity-80 z-10" />
+                    <div className="w-full h-full flex flex-col justify-between z-50">
+                        {children}
+                    </div>
                 </div>
             )}
         </>

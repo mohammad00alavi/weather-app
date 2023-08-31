@@ -20,14 +20,12 @@ const use4DaysForecast = (lat: number, lon: number) => {
         return null;
     }
 
-
-    const forecast = forecastData?.data.list.map(item => ({
-      date: item.dt_txt,
-      temp: item.main.temp,
-      weather: item.weather[0].main,
-      description: item.weather[0].description,
+    const forecast = forecastData?.data.list.map((item) => ({
+        date: item.dt_txt,
+        temp: item.main.temp,
+        weather: item.weather[0].main,
+        description: item.weather[0].description,
     }));
-
     return forecast;
 };
 

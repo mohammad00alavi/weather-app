@@ -5,10 +5,10 @@ import { Location } from "@/types/CityDataTypes";
 const CityName = () => {
     const { city, county } = useLocation<Location>();
     return (
-        <div className="mt-8 md:mr-8 flex flex-col">
-            <h1 className="text-4xl text-cyan-300 text-shadow">
+        <div className="flex flex-col items-center lg:items-start">
+            <h1 className="text-2xl text-white text-shadow">
                 {city},{" "}
-                <span className="text-lg font-bold text-cyan-300 text-shadow">{county}</span>
+                <span className="text-lg font-bold text-white text-shadow">{county}</span>
             </h1>
         </div>
     );
