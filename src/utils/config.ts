@@ -3,6 +3,14 @@ import { weatherStatusColors } from "./weatherStatusColors";
 import { weatherIconsMap } from "./weatherIconsMap";
 
 export const CONFIG = {
-    colors: { ...weatherStatusColors, ...weatherInfoColors },
-    iconMap: weatherIconsMap,
+    COLORS: { ...weatherStatusColors, ...weatherInfoColors },
+    ICON_MAP: weatherIconsMap,
+    BOARD_CITIES: [
+        "fredrikstad",
+        "oslo",
+        "funchal",
+        "warsaw",
+        "tehran",
+        "amsterdam",
+    ],
 };

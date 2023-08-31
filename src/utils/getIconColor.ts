@@ -10,8 +10,8 @@ export const getIconColor = (
           | WeatherInfoTypes[keyof WeatherInfoTypes]
       )
     | undefined => {
-    if (status in CONFIG.colors) {
-        return CONFIG.colors[status];
+    if (status in CONFIG.COLORS) {
+        return CONFIG.COLORS[status];
     } else {
         return undefined;
     }

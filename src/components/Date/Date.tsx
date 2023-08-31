@@ -4,9 +4,9 @@ import React from "react";
 const Date = () => {
     const { currentDate, currentTime } = useCurrentDateAndTime();
     return (
-        <div className="mt-8 md:ml-8">
-            <h2 className="text-6xl text-cyan-300 text-shadow">{currentTime}</h2>
-            <p className="mt-4 text-xl text-cyan-300 text-shadow text-center md:text-left">{currentDate}</p>
+        <div className="flex flex-col gap-2 items-center lg:items-start">
+            <h2 className="text-lg text-white text-shadow">{currentTime}</h2>
+            <p className="text-lg text-white text-shadow text-center md:text-left">{currentDate}</p>
         </div>
     );
 };
