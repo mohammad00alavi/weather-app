@@ -1,11 +1,11 @@
 import DayCard from "@/components/DayCard/DayCard";
-import { ForecastData } from "@/types/ForecastData";
+import { ForecastItem } from "@/types/ForecastItem";
 import { getMaxMinTempByDay } from "@/utils/getMaxMinTempByDay";
 import React from "react";
 
 interface DayCardContainerProps {
     isMobile: boolean;
-    data: ForecastData[];
+    data: ForecastItem[];
 }
 
 const DayCardContainer = ({ data, isMobile }: DayCardContainerProps) => {

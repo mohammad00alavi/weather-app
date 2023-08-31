@@ -1,17 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { useWindowSize } from "@/hooks/useWindowSize";
+import { ForecastItem } from "@/types/ForecastItem";
 const Plotly = dynamic(() => import("react-plotly.js"), { ssr: false });
 
-interface WeatherData {
-    date: string;
-    temp: number;
-    weather: string;
-    description: string;
-}
-
 interface ChartProps {
-    data: WeatherData[];
+    data: ForecastItem[];
 }
 
 const Chart: React.FC<ChartProps> = ({ data }) => {
@@ -28,23 +22,22 @@ const Chart: React.FC<ChartProps> = ({ data }) => {
         {
             x: dates,
             y: temps,
-            type: "scatter",
             text: temps,
             mode: "lines+text",
             fill: "tozeroy",
-            marker: { color: "orange" },
+            marker: { color: "purple" },
             textposition: "top center",
-            textfont: { size: 12 },
+            textfont: { size: 12, color: "white" },
             hoverinfo: "none",
         },
     ];
-    // TODO - fix the textfont hide problem and type error
     const layout = {
         xaxis: {
             showgrid: false,
             zeroline: false,
             showline: false,
             showticklabels: true,
+            tickfont: { color: "white" },
         },
         yaxis: {
             showgrid: false,
@@ -55,7 +48,15 @@ const Chart: React.FC<ChartProps> = ({ data }) => {
         showlegend: false,
         height: 140,
         width: width,
-        margin: { t: 20, b: 22, l: 0, r: 0, pad: 5 },
+        margin: {
+            t: 20,
+            b: 22,
+            l: 20,
+            r: 20,
+            pad: 5,
+        },
+        plot_bgcolor: "rgba(0, 0, 0, 0)",
+        paper_bgcolor: "rgba(0, 0, 0, 0)",
     };
     const config: Partial<Plotly.Config> = {
         staticPlot: true,

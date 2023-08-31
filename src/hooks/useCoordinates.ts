@@ -17,7 +17,6 @@ const useCoordinates = (cityName: string) => {
         };
         getData().then((data) => {
             const location = data;
-
             if (location) {
                 const coords: Coordinates = {
                     lat: location.lat,

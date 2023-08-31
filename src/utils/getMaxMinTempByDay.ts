@@ -1,3 +1,5 @@
+import { DayTemperature } from "@/types/DayTemperature";
+
 const fullnameDays: string[] = [
     "Saturday",
     "Sunday",
@@ -21,13 +23,6 @@ function getDayName(date: Date, isMobile: boolean): string {
     return isMobile
         ? shorthandDays[date.getDay()]
         : fullnameDays[date.getDay()];
-}
-
-interface DayTemperature {
-    day: string;
-    maxTemp: number | null;
-    minTemp: number | null;
-    status: string;
 }
 
 export const getMaxMinTempByDay = (

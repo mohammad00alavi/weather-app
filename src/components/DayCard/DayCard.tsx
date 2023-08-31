@@ -1,8 +1,16 @@
 import React from "react";
 import IconBox from "../InfoBoxItem";
 import { getWeatherIcon } from "@/utils/getWeatherIcon";
+import { DayTemperature } from "@/types/DayTemperature";
 
-const DayCard = ({ data }) => {
+interface DayCardProps {
+    data: DayTemperature;
+}
+
+const DayCard = ({ data }: DayCardProps) => {
+    if (!data.maxTemp || !data) {
+        return <div>loading...</div>;
+    }
     return (
         <div className="flex flex-col justify-center items-center p-2 md:mr-4 self-end">
             <h3 className="text-white text-shadow ">{data.day}</h3>

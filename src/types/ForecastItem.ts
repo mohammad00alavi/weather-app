@@ -1,6 +1,6 @@
-export interface ForecastData {
+export interface ForecastItem {
     date: string;
-    description: string;
     temp: number;
     weather: string;
+    description: string;
 }
