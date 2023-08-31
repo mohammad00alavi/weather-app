@@ -16,7 +16,7 @@ const DayCard = ({ data }: DayCardProps) => {
             <h3 className="text-white text-shadow ">{data.day}</h3>
             <IconBox
                 data={data.maxTemp}
-                status={data.status}
+                status={'temp'}
                 icon={getWeatherIcon(data.status, "info")}
                 iconClasses="flex flex-col mx-3 md:mx-6 rounded self-center"
                 textClasses="text-center md:text-2xl text-shadow text-white"

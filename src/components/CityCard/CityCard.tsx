@@ -17,7 +17,7 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
             <Link href={`/${cityName}`}>
                 <Card size={size} color={color}>
                     <div className="flex justify-between items-center">
-                        <h4 className="font-bold text-gray-700">
+                        <h4 className="font-bold text-gray-700 text-sm lg:text-lg">
                             {cityData?.city}
                         </h4>
                         <IconBox
@@ -28,7 +28,7 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
                                 "flex flex-col items-center ml-6 md:ml-0"
                             }
                             textClasses={
-                                "text-center text-lg font-bold text-gray-700"
+                                "text-center text-lg lg:text-lg font-bold text-gray-700 text-sm"
                             }
                         />
                     </div>
