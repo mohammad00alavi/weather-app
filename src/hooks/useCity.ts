@@ -1,36 +1,33 @@
 import { fetchCityData } from "@/fetchers/fetchCityData";
 import { CityData, CityDataHookResult } from "@/types/CityData";
 import { CityDataResponse } from "@/types/CityDataResponse";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useCity = (cityName: string): CityDataHookResult => {
     const [city, setCity] = useState<CityDataResponse | null>(null);
-    const isMounted = useRef(true);
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setIsLoading(true);
                 const res = await fetchCityData(cityName);
-                if (isMounted.current) {
-                    if (res?.data) {
-                        setCity(res?.data);
-                    } else {
-                        throw new Error("City data not available");
-                    }
+                if (res?.data) {
+                    setCity(res?.data);
+                } else {
+                    throw new Error("City data not available");
                 }
             } catch (error) {
-                if (isMounted.current) {
-                    throw new Error("Failed to fetch city data");
-                }
+                throw new Error("Failed to fetch city data");
             }
+            setIsLoading(false);
         };
+
         fetchData();
-        return () => {
-            isMounted.current = false;
-        };
     }, [cityName]);
 
     if (!city) {
-        return { cityData: null };
+        return { isLoading, cityData: null };
     }
 
     const customizedCityData: CityData = {
@@ -48,6 +45,7 @@ const useCity = (cityName: string): CityDataHookResult => {
     };
     return {
         cityData: customizedCityData,
+        isLoading,
     };
 };
 

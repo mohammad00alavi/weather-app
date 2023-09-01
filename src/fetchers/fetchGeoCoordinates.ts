@@ -1,7 +1,5 @@
-import { Status } from "@/types/Status";
-
 export async function fetchGeoCoordinates(city: string) {
-    const URL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`;
+    const URL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`;
     let res;
     try {
         res = await fetch(URL);
