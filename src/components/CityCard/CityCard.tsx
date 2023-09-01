@@ -7,11 +7,11 @@ import { getWeatherIcon } from "@/utils/getWeatherIcon";
 import { CityCardProps } from "@/types/CityCardProps";
 
 const CityCard = ({ cityName, size, color }: CityCardProps) => {
-    const { cityData, isLoading, error } = useCity(cityName);
+    const { cityData } = useCity(cityName);
 
     return (
         <>
-            {!isLoading && cityData && (
+            {cityData && (
                 <Link href={`/${cityName}`}>
                     <Card size={size} color={color}>
                         <div className="flex justify-between items-center">
