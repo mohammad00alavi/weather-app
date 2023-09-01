@@ -7,11 +7,16 @@ import { getWeatherIcon } from "@/utils/getWeatherIcon";
 import { CityCardProps } from "@/types/CityCardProps";
 
 const CityCard = ({ cityName, size, color }: CityCardProps) => {
-    const city = useCity(cityName);
-    if (city.loading) {
-        return <div>Loading...</div>;
+    const { cityData, loading, error } = useCity(cityName);
+
+    if (loading) {
+        return <p>Loading...</p>;
     }
-    const cityData = city.cityData;
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
     if (cityData) {
         return (
             <Link href={`/${cityName}`}>
@@ -21,8 +26,8 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
                             {cityData?.city}
                         </h4>
                         <IconBox
-                            data={Math.round(cityData.temp)}
-                            icon={getWeatherIcon(cityData.weather, "info")}
+                            data={Math.round(cityData?.temp)}
+                            icon={getWeatherIcon(cityData?.weather, "info")}
                             status={"temp"}
                             iconClasses={
                                 "flex flex-col items-center ml-6 md:ml-0"
@@ -36,7 +41,6 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
             </Link>
         );
     }
-    return null;
 };
 
 export default CityCard;

@@ -1,46 +1,54 @@
 import { fetchCityData } from "@/fetchers/fetchCityData";
-import { CityData } from "@/types/CityData";
+import { CityData, CityDataHookResult } from "@/types/CityData";
 import { CityDataResponse } from "@/types/CityDataResponse";
 import { useEffect, useState } from "react";
 
-type UseCityHookResult = {
-    cityData?: CityData;
-    loading: boolean;
-};
-
-const useCity = (cityName: string): UseCityHookResult => {
+const useCity = (cityName: string): CityDataHookResult => {
     const [city, setCity] = useState<CityDataResponse | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string>("");
+
     useEffect(() => {
-        const getData = async () => {
-            const res = await fetchCityData(cityName);
-            return res?.data;
+        const fetchData = async () => {
+            try {
+                const res = await fetchCityData(cityName);
+                if (res?.data) {
+                    setCity(res?.data);
+                } else {
+                    setError("City data not available");
+                }
+            } catch (error) {
+                setError("Failed to fetch city data");
+            }
         };
-        getData().then((data) => {
-            setCity(data);
-            setLoading(false);
-        });
+        fetchData();
     }, [cityName]);
-    if (city) {
-        const customizedCityData: CityData = {
-            city: city.name,
-            country: city.sys.country,
-            feels_like: city.main.feels_like,
-            humidity: city.main.humidity,
-            pressure: city.main.pressure,
-            temp: city.main.temp,
-            temp_max: city.main.temp_max,
-            temp_min: city.main.temp_min,
-            wind: city.wind,
-            weather: city.weather[0].main,
-            description: city.weather[0].description,
-        };
-        return {
-            cityData: customizedCityData,
-            loading: loading,
-        };
+
+    if (!city) {
+        return { loading: true, cityData: null, error };
     }
-    return { loading: loading };
+
+    if (error) {
+        return { loading: false, cityData: null, error };
+    }
+
+    const customizedCityData: CityData = {
+        city: city.name,
+        country: city.sys.country,
+        feels_like: city.main.feels_like,
+        humidity: city.main.humidity,
+        pressure: city.main.pressure,
+        temp: city.main.temp,
+        temp_max: city.main.temp_max,
+        temp_min: city.main.temp_min,
+        wind: city.wind,
+        weather: city.weather[0].main,
+        description: city.weather[0].description,
+    };
+    return {
+        cityData: customizedCityData,
+        loading: false,
+        error: "",
+    };
 };
 
 export default useCity;
