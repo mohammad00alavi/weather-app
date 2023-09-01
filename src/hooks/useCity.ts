@@ -11,6 +11,7 @@ const useCity = (cityName: string): CityDataHookResult => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setIsLoading(true);
                 const res = await fetchCityData(cityName);
                 if (res?.data) {
                     setCity(res?.data);
