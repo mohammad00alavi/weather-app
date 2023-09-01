@@ -13,3 +13,8 @@ export interface CityData {
     weather: string;
     description: string;
 }
+
+export interface CityDataHookResult {
+    cityData: CityData | null;
+    isLoading: boolean;
+}

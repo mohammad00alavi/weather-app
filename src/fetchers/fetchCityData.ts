@@ -1,7 +1,7 @@
 import { Status } from "@/types/Status";
 
 export async function fetchCityData(city: string) {
-    const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=en&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`;
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=en&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`;
     let status: Status;
     let res;
     try {
