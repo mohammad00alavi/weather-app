@@ -16,6 +16,6 @@ export interface CityData {
 
 export interface CityDataHookResult {
     cityData: CityData | null;
-    loading: boolean;
+    isLoading: boolean;
     error: string;
 }

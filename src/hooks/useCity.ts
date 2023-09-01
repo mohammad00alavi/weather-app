@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 const useCity = (cityName: string): CityDataHookResult => {
     const [city, setCity] = useState<CityDataResponse | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string>("");
 
     useEffect(() => {
@@ -19,16 +20,18 @@ const useCity = (cityName: string): CityDataHookResult => {
             } catch (error) {
                 setError("Failed to fetch city data");
             }
+            setIsLoading(false);
         };
+
         fetchData();
     }, [cityName]);
 
     if (!city) {
-        return { loading: true, cityData: null, error };
+        return { isLoading, cityData: null, error };
     }
 
     if (error) {
-        return { loading: false, cityData: null, error };
+        return { isLoading, cityData: null, error };
     }
 
     const customizedCityData: CityData = {
@@ -46,7 +49,7 @@ const useCity = (cityName: string): CityDataHookResult => {
     };
     return {
         cityData: customizedCityData,
-        loading: false,
+        isLoading,
         error: "",
     };
 };
