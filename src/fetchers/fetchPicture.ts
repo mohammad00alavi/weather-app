@@ -10,6 +10,10 @@ export const fetchPicture = async (city: string) => {
             color: picture.color,
         };
     } catch (error) {
-        throw new Error("Network error, please try again later.");
+        return {
+            imgSrc: "",
+            description: "",
+            color: "",
+        };
     }
 };

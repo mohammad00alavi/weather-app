@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const CityInput: React.FC<CityInputProps> = ({ onTestSubmit }) => {
     const [inputText, setInputText] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const router = useRouter();
     const {
         placesService,
@@ -15,7 +16,6 @@ const CityInput: React.FC<CityInputProps> = ({ onTestSubmit }) => {
     } = usePlacesService({
         apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     });
-
     useEffect(() => {
         if (placePredictions && placePredictions.length)
             placesService?.getDetails({
@@ -24,17 +24,22 @@ const CityInput: React.FC<CityInputProps> = ({ onTestSubmit }) => {
     }, [placePredictions]);
     const getUniquePredictions = (predictions) => {
         const seen = new Set();
+        const englishRegex = /^[A-Za-z0-9 ,.'-]+$/;
+
         return predictions.filter((prediction) => {
-            const isDuplicate = seen.has(
-                prediction.structured_formatting.main_text
-            );
-            seen.add(prediction.structured_formatting.main_text);
-            return !isDuplicate;
+            const mainText = prediction.structured_formatting.main_text;
+            const isDuplicateOrNonEnglish =
+                seen.has(mainText) || !englishRegex.test(mainText);
+
+            seen.add(mainText);
+
+            return !isDuplicateOrNonEnglish;
         });
     };
     const uniquePredictions = getUniquePredictions(placePredictions);
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value);
+        setIsModalOpen(true);
         getPlacePredictions({
             input: e.target.value,
             types: ["(cities)"],
@@ -57,10 +62,10 @@ const CityInput: React.FC<CityInputProps> = ({ onTestSubmit }) => {
     };
 
     return (
-        <div className="w-full m-auto absolute opacity-30 z-50">
+        <div className="w-full m-auto absolute z-50">
             <form
                 onSubmit={onSubmitHandler}
-                className="flex flex-row justify-between w-full"
+                className="flex flex-row justify-between w-full relative opacity-40"
             >
                 <input
                     aria-label="search"
@@ -76,23 +81,32 @@ const CityInput: React.FC<CityInputProps> = ({ onTestSubmit }) => {
                     Search
                 </button>
             </form>
-            {isPlacePredictionsLoading ? (
-                <p>loading...</p>
-            ) : (
-                <ul>
-                    {uniquePredictions?.map((prediction) => (
-                        <Link
-                            href={`/${prediction.structured_formatting.main_text.toLowerCase()}`}
-                            key={prediction.place_id}
-                            className="text-white"
-                        >
-                            <li className="text-white">
-                                {prediction.description}
-                            </li>
-                        </Link>
-                    ))}
-                </ul>
-            )}
+            {inputText &&
+                isModalOpen &&
+                (isPlacePredictionsLoading ? (
+                    <p className="text-white p-4 bg-gray-500">loading...</p>
+                ) : (
+                    <div className="relative">
+                        <ul className="bg-gray-500">
+                            {uniquePredictions?.map((prediction) => (
+                                <Link
+                                    href={`/${prediction.structured_formatting.main_text.toLowerCase()}`}
+                                    key={prediction.place_id}
+                                    className="text-white"
+                                    onClick={() => setInputText("")}
+                                >
+                                    <li className="text-white p-4 lg:p-2 border-b-[1px] border-gray-400">
+                                        {prediction.description}
+                                    </li>
+                                </Link>
+                            ))}
+                        </ul>
+                        <div
+                            className="absolute w-full h-screen bg-transparent z-50"
+                            onClick={() => setIsModalOpen(false)}
+                        />
+                    </div>
+                ))}
         </div>
     );
 };
