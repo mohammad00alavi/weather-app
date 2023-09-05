@@ -5,7 +5,7 @@ import Layout from "@/components/Layout/Layout";
 import DateAndLocation from "./DateAndLocation";
 import TempContainer from "./TempContainer";
 import CityTemplate from "./CityTemplate";
-import CityInput from "@/components/CityInput/CityInput";
+import SearchCity from "@/components/Search/SearchCity";
 import CustomHead from "@/components/CustomHead/CustomHead";
 
 interface CityElementProps {
@@ -22,7 +22,7 @@ const CityElement: React.FC<CityElementProps> = ({ pageProps }) => {
             />
             <Provider<PagePropsTypes> appProps={pageProps}>
                 <Layout>
-                    <CityInput />
+                    <SearchCity />
                     <CityTemplate>
                         <DateAndLocation />
                         <TempContainer />

@@ -1,4 +1,4 @@
-import CityInput from "@/components/CityInput/CityInput";
+import SearchCity from "@/components/Search/SearchCity";
 import Layout from "@/components/Layout/Layout";
 import HomeTemplate from "./HomeTemplate";
 import Heading from "@/components/Heading/Heading";
@@ -11,7 +11,7 @@ const HomeElement = () => {
         <>
             <CustomHead title="Weather App" description="The Weather App" />
             <Layout>
-                <CityInput />
+                <SearchCity />
                 <HomeTemplate>
                     <Board />
                     <AppInfo />
