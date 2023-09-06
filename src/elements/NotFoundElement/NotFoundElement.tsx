@@ -4,6 +4,7 @@ import NotFoundTemplate from "./NotFoundTemplate";
 import SearchCity from "@/components/Search/SearchCity";
 import Heading from "@/components/Heading/Heading";
 import CustomHead from "@/components/CustomHead/CustomHead";
+import SearchProvider from "@/context/SearchContext/Provider";
 
 const NotFoundElement = () => {
     return (
@@ -13,7 +14,9 @@ const NotFoundElement = () => {
                 description="Page not found - Weather App"
             />
             <Layout>
-                <SearchCity />
+                <SearchProvider>
+                    <SearchCity />
+                </SearchProvider>
                 <NotFoundTemplate>
                     <Heading
                         text="404 - City Not Found :("

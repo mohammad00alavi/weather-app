@@ -7,6 +7,7 @@ import TempContainer from "./TempContainer";
 import CityTemplate from "./CityTemplate";
 import SearchCity from "@/components/Search/SearchCity";
 import CustomHead from "@/components/CustomHead/CustomHead";
+import SearchProvider from "@/context/SearchContext/Provider";
 
 interface CityElementProps {
     pageProps: PagePropsTypes;
@@ -22,7 +23,9 @@ const CityElement: React.FC<CityElementProps> = ({ pageProps }) => {
             />
             <Provider<PagePropsTypes> appProps={pageProps}>
                 <Layout>
-                    <SearchCity />
+                    <SearchProvider>
+                        <SearchCity />
+                    </SearchProvider>
                     <CityTemplate>
                         <DateAndLocation />
                         <TempContainer />

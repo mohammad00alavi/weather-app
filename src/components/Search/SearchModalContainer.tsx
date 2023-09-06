@@ -1,6 +1,6 @@
 import React from "react";
 import SearchModal from "./SearchModal";
-import { usePlacePredictions } from "@/hooks/usePlacePredictions";
+import { useSearch } from "@/hooks/useSearch";
 
 const SearchModalContainer = () => {
     const {
@@ -10,7 +10,7 @@ const SearchModalContainer = () => {
         setIsModalOpen,
         predictions: uniquePredictions,
         isPlacePredictionsLoading,
-    } = usePlacePredictions();
+    } = useSearch();
 
     return (
         <>

@@ -5,13 +5,16 @@ import Heading from "@/components/Heading/Heading";
 import AppInfo from "@/components/AppInfo/AppInfo";
 import CustomHead from "@/components/CustomHead/CustomHead";
 import Board from "./Board";
+import SearchProvider from "@/context/SearchContext/Provider";
 
 const HomeElement = () => {
     return (
         <>
             <CustomHead title="Weather App" description="The Weather App" />
             <Layout>
-                <SearchCity />
+                <SearchProvider>
+                    <SearchCity />
+                </SearchProvider>
                 <HomeTemplate>
                     <Board />
                     <AppInfo />

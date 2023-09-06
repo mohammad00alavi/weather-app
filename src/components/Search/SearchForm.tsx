@@ -1,11 +1,10 @@
-import { usePlacePredictions } from "@/hooks/usePlacePredictions";
+import { useSearch } from "@/hooks/useSearch";
 import { SearchFormProps } from "@/types/SearchFormProps";
 import { useRouter } from "next/router";
 import React from "react";
 
 const SearchForm = ({ onTestSubmit }: SearchFormProps) => {
-    const { handleInputChange, inputText, setInputText } =
-        usePlacePredictions();
+    const { handleInputChange, inputText, setInputText } = useSearch();
     const router = useRouter();
 
     const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {

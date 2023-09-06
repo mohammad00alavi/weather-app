@@ -1,8 +1,9 @@
+import { PlacePredicationsHookResult } from "@/types/PlacePredicationsHookResult";
 import { getUniquePredictions } from "@/utils/getUniquePredictions";
 import React, { useEffect, useState } from "react";
 import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 
-export const usePlacePredictions = () => {
+export const usePlacePredictions = (): PlacePredicationsHookResult => {
     const [inputText, setInputText] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const {
