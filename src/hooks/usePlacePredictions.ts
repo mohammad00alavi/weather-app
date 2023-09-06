@@ -36,7 +36,6 @@ export const usePlacePredictions = (): PlacePredicationsHookResult => {
         getPlacePredictions({
             input: e.target.value,
             types: ["(cities)"],
-            language: "en",
         });
     };
     return {
