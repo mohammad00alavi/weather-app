@@ -7,7 +7,10 @@ const IconBox: React.FC<IconBoxProps> = (props) => {
         <div className={props.iconClasses}>
             <div className="mb-2 self-center">{props.icon}</div>
             <p className={props.textClasses}>
-                {props.data}<Metrics status={props.status} />
+                {props?.data
+                    ? props?.data
+                    : `${props?.tempMax} / ${props?.tempMin}`}
+                <Metrics status={props.status} />
             </p>
         </div>
     );

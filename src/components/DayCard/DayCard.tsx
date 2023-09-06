@@ -8,15 +8,16 @@ interface DayCardProps {
 }
 
 const DayCard = ({ data }: DayCardProps) => {
-    if (!data.maxTemp || !data) {
+    if (!data.maxTemp || !data || !data.minTemp) {
         return <div>loading...</div>;
     }
     return (
         <div className="flex flex-col gap-2 justify-center items-center p-2 md:mr-4 self-end">
             <h3 className="text-white text-shadow ">{data.day}</h3>
             <IconBox
-                data={data.maxTemp}
-                status={'temp'}
+                tempMax={data.maxTemp}
+                tempMin={data.minTemp}
+                status={"temp"}
                 icon={getWeatherIcon(data.status, "info")}
                 iconClasses="flex flex-col mx-3 md:mx-6 rounded self-center"
                 textClasses="text-center md:text-2xl text-shadow text-white"

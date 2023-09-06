@@ -11,6 +11,7 @@ import Pressure from "./Pressure";
 import Exclamation from "./Exclamation";
 import Linkedin from "./Linkedin";
 import Github from "./Github";
+import Haze from "./Haze";
 
 interface IconsProps extends SVGProps<SVGSVGElement> {}
 
@@ -27,6 +28,7 @@ const Icons = {
     Exclamation: (props: IconsProps) => <Exclamation {...props} />,
     Linkedin: (props: IconsProps) => <Linkedin {...props} />,
     Github: (props: IconsProps) => <Github {...props} />,
+    Haze: (props: IconsProps) => <Haze {...props} />,
 };
 
 export default Icons;

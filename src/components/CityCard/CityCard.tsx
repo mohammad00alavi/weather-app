@@ -19,7 +19,8 @@ const CityCard = ({ cityName, size, color }: CityCardProps) => {
                                 {cityData?.city}
                             </h4>
                             <IconBox
-                                data={Math.round(cityData?.temp)}
+                                tempMax={Math.round(cityData?.temp_max)}
+                                tempMin={Math.round(cityData?.temp_min)}
                                 icon={getWeatherIcon(cityData?.weather, "info")}
                                 status={"temp"}
                                 iconClasses={

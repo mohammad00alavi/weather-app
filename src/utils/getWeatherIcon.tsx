@@ -23,6 +23,10 @@ export const getWeatherIcon = (weather: string, className: string) => {
             return (
                 <Icons.Wind className={className} fill={getIconColor(status)} />
             );
+        case "haze":
+            return (
+                <Icons.Haze className={className} fill={getIconColor(status)} />
+            );
         case "humidity":
             return (
                 <Icons.Humidity
