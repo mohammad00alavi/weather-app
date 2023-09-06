@@ -1,5 +1,5 @@
 import { City } from "./City";
 
-export interface CityInputProps {
+export interface SearchFormProps {
     onTestSubmit?: (city: City) => void;
 }

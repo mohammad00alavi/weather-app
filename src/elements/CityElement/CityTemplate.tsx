@@ -16,7 +16,7 @@ const CityTemplate: React.FC<ComponentWithChildren> = ({ children }) => {
                     }}
                 >
                     <div className="absolute inset-0 bg-teal-950 opacity-80 z-10" />
-                    <div className="w-full h-full flex flex-col justify-between z-50">
+                    <div className="w-full h-full flex flex-col justify-between z-10">
                         {children}
                     </div>
                 </div>
