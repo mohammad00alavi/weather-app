@@ -3,4 +3,5 @@ export interface WeatherStatus {
     rain: string;
     clouds: string;
     haze: string;
+    fog: string;
 }

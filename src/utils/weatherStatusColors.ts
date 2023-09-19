@@ -5,4 +5,5 @@ export const weatherStatusColors: WeatherStatus = {
     rain: "#03A9F4",
     clouds: "white",
     haze: "white",
+    fog: "white",
 };
