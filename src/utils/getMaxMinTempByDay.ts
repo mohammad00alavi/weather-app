@@ -80,7 +80,7 @@ export const getMaxMinTempByDay = (
         .filter(
             (dayData) => dayData.maxTemp !== null && dayData.minTemp !== null
         )
-        .filter((_, index) => index !== today);
+        .slice(today);
 
     return filteredData;
 };
