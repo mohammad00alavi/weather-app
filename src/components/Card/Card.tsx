@@ -2,19 +2,11 @@ import React from "react";
 import { CardProps } from "@/types/CardProps";
 
 const Card = ({ children, size, color }: CardProps) => {
-    const colorStyle = (color: string) => {
-        switch (color) {
-            case "blue":
-                return "bg-sky-300";
-            case "green":
-                return "bg-green-300";
-            case "orange":
-                return "bg-orange-400";
-            case "gray":
-                return "bg-gray-500";
-            default:
-                return "bg-gray-500";
-        }
+    const colorMap = {
+        blue: "bg-sky-300 hover:bg-sky-400",
+        green: "bg-green-300 hover:bg-green-400",
+        orange: "bg-orange-400 hover:bg-orange-500",
+        gray: "bg-gray-500 hover:bg-gray-600",
     };
     const sizeStyle = (size: string) => {
         switch (size) {
@@ -30,7 +22,7 @@ const Card = ({ children, size, color }: CardProps) => {
     };
     return (
         <article
-            className={`${colorStyle(color)} ${sizeStyle(
+            className={`${colorMap[color] || colorMap["blue"]} ${sizeStyle(
                 size
             )} flex flex-col justify-center p-2 lg:p-4 rounded`}
         >
